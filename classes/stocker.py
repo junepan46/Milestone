@@ -277,6 +277,7 @@ class Stocker:
       
         buf = io.BytesIO()
         plt.savefig(buf, format='png')
+        plt.close()
         image_base64 = base64.b64encode(buf.getvalue()).decode('utf-8').replace('\n', '')
         buf.close()
         return "data:image/png;base64,"+image_base64
