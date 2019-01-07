@@ -8,7 +8,7 @@ def index():
 
 @app.route('/graph')
 def graph():
-  s = Stocker(ticker='MSFT')
+  s = Stocker(ticker=request.args.get('symbol','GOOG'))
   data=s.plot_stock(start_date=None, end_date=None, stats=['Close'], plot_type='basic')
   return render_template('graph.html',graph_data=data)
 
